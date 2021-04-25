@@ -142,6 +142,12 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # keras
 # ------------------------------------------------------------------
     $PIP_INSTALL \
+        imageio \
+        && \
+# ==================================================================
+# imageio
+# ------------------------------------------------------------------
+    $PIP_INSTALL \
         h5py \
         keras \
         && \
@@ -175,9 +181,9 @@ RUN pip install xgboost
 # settings
 # =================================
 # set up jupyter notebook
-COPY jupyter_notebook_config.py /root/.jupyter/
-EXPOSE 8888 6006
-RUN mkdir /notebook
-ENTRYPOINT [ "/usr/bin/tini", "--" ]
-CMD ["jupyter", "notebook", "--no-browser", "--allow-root"]
-WORKDIR /notebook
+#COPY jupyter_notebook_config.py /root/.jupyter/
+#EXPOSE 8888 6006
+#RUN mkdir /notebook
+#ENTRYPOINT [ "/usr/bin/tini", "--" ]
+#CMD ["jupyter", "notebook", "--no-browser", "--allow-root"]
+#WORKDIR /notebook
