@@ -144,6 +144,13 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     $PIP_INSTALL \
         imageio \
         && \
+        
+# ==================================================================
+# einops
+# ==================================================================
+     $PIP_INSTALL \
+            einops \
+            && \
 # ==================================================================
 # imageio
 # ------------------------------------------------------------------
@@ -171,19 +178,10 @@ RUN apt-get install -y curl grep sed dpkg && \
 # tornado version=5.1.1
 # =================================
 RUN pip install --upgrade tornado==5.1.1
-# =================================
 
 # =================================
 # Xgboost + gpu
 # =================================
 RUN pip install xgboost
 
-# settings
-# =================================
-# set up jupyter notebook
-#COPY jupyter_notebook_config.py /root/.jupyter/
-#EXPOSE 8888 6006
-#RUN mkdir /notebook
-#ENTRYPOINT [ "/usr/bin/tini", "--" ]
-#CMD ["jupyter", "notebook", "--no-browser", "--allow-root"]
-#WORKDIR /notebook
+
