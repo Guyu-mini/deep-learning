@@ -19,7 +19,7 @@
 # ---------------------------------
 
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04 as base
-LABEL maintainer="nclxwen@gmail.com"
+
 # =================================================================
 # set evn
 # -----------------------------------------------------------------
@@ -123,7 +123,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         typing \
         && \
     $PIP_INSTALL \
-        torch -f https://download.pytorch.org/whl/nightly/cu100/torch.html \
+        torch==1.4.0 -f https://download.pytorch.org/whl/nightly/cu100/torch.html \
         && \
 # ==================================================================
 # tensorflow
